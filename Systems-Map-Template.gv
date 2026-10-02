@@ -90,12 +90,12 @@
 //
 // ============================================================
 
-// Team Number:
-// Class Section:
-// Team Member Names:
-// Health Topic:
+// Team Number: 6
+// Class Section: 51
+// Team Member Names: Natalie Adi, Evelyn Herrera Ayala, Kelly Madrigal, Gabriela Quezada, Chelsea Umana
+// Health Topic: Emergency Department Overcrowding
 
-digraph YourSystemName {
+digraph EmergencyDepartmentOvercrowding {
 
   rankdir=TD;
 
@@ -105,9 +105,10 @@ digraph YourSystemName {
 
   // --- Nodes (your selected elements) ---
 
-  // Worked example from the instructions above — delete once you add your own:
-  // customers [label="Daily customer count"];  // Category: (example)
-  // buzz      [label="Word-of-mouth / online buzz"];  // Category: (example)
+  // Natalie - Elements 1-3
+  hospital_beds [label="Hospital Bed Capacity"]; // Infrastructure
+  emergency_access [label="Emergency Care Access"]; // Infrastructure
+  primary_capacity [label="Primary Care Visit Capacity"]; // Care Providers
 
   // --- Causal links (with polarity) ---
 

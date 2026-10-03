@@ -120,6 +120,11 @@ transportation_barriers [label="Transportation Barriers in Low-Income Communitie
 prescription_medication_coverage [label="Prescription or Medication Coverage"]; // Pharmaceuticals and Devices
 federal_emtala [label="Federal EMTALA"]; // Federal and State Policy
 
+// Gabriela - Elements 10-12 
+primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
+inequitable_health_resources [label="Inequitable Access to Health-Promoting Resources"]; // Structural Inequities
+uninsured_population_size [label="Uninsured Population Size"]; // Financing/Insurance
+
   // --- Causal links (with polarity) ---
   // Natalie - Casual Links
   hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.

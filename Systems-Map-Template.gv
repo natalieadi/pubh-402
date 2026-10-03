@@ -112,7 +112,7 @@ digraph EmergencyDepartmentOvercrowding {
 
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
-health_it_interoperobility [label="Health Information Technology Interobility]; // Infrastructure
+health_it_interoperobility [label="Health Information Technology Interobility"]; // Infrastructure
 fee_for_service [label="Fee-for-Service Payment Prevalence"]; // Payment Models
 
 // Kelly - Elements 7-9

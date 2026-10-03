@@ -132,7 +132,7 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   // Gabriela - Casual Links 
   primary_care_clincian_supply -> primary_capacity [label="+"]; // more primary care clinicians can increase the numberof patients who can be scheduled and seen.
   inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity
-  uninsured_population -> prescription_medication_coverage [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
+  uninsured_population -> prescription_medication_coverage [label="-"]; // A larger uninsured population can make it harder for people to obtain medication coverage and afford needed prescriptions.
   // Evelyn - Casual Links 
   nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
   health_it_interoperability -> emergency_access [label="+"]; // Better exchange of patient information can reduce delays caused by missing medical histories, test results, or other information.

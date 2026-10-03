@@ -113,7 +113,7 @@ digraph EmergencyDepartmentOvercrowding {
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
 health_it_interoperobility [label="Health Information Technology Interobility]; // Infrastructure
-fee_for_service_payment_prevalence [label="Fee-for-Service Payment Prevalence"]; // Payment Models
+fee_for_service [label="Fee-for-Service Payment Prevalence"]; // Payment Models
 
 // Kelly - Elements 7-9
 transportation_barriers [label="Transportation Barriers in Low-Income Communities"]; // Structural Determinants
@@ -123,7 +123,7 @@ federal_emtala [label="Federal EMTALA"]; // Federal and State Policy
 // Gabriela - Elements 10-12 
 primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
 inequitable_health_resources [label="Inequitable Access to Health-Promoting Resources"]; // Structural Inequities
-uninsured_population_size [label="Uninsured Population Size"]; // Financing/Insurance
+uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 
   // --- Causal links (with polarity) ---
   // Natalie - Casual Links

@@ -108,7 +108,7 @@ digraph EmergencyDepartmentOvercrowding {
   // Natalie - Elements 1-3
   hospital_beds [label="Hospital Bed Capacity"]; // Infrastructure
   emergency_access [label="Emergency Care Access"]; // Infrastructure
-  primary_capacity [label="Primary Care Visit Capacity"]; // Care Providers
+  primary_capacity [label="Primary Care Visit Capacity"]; // Care 
 
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
@@ -130,6 +130,16 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.
   primary_capacity -> emergency_access [label="+"]; // More primary care appointments reduce avoidable ED visits.
   // Evelyn, kelly, Gabriela and Chelsea can add their links here.
+
+ // Proposed feedback loop R1
+ // Better patient flow may improve nursing retention over time.
+ emergency_access -> nursing [label="+, delay"];
+
+ // More nurses allow more hospital beds to be staffed.
+ nursing -> hospital_beds [label="+"];
+
+ // Existing link:
+ // hospital_beds -> emergency_access [label="+"];
 
    // Worked example, continuing the two nodes above — delete once you add your own:
   // customers -> buzz [label="+"];  // More customers visiting generates more word-of-mouth and online reviews.

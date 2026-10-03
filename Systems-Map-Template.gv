@@ -169,6 +169,17 @@ label="R2 Reinforcing: Primary-Care Equity and Workforce";
     inequitable_health_resources;
     // More primary care clinicians can reduce unequal access to health-promoting resources, while inequitable access can make clinician recruitment and retention more difficult.
 
+ }
+// Proposed feedback loop R3
+subgraph cluster_R3 {
+label="R3 Reinforcing: Primary care access and tranportation";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+    Primary_Care_Capacity;
+    Transporation_Barriers;
+    // When primary care capacity decreases, transportation barriers can increase the difficulty of accessing primary care. Increased transporation barriers can further reduce primary care capacity by making it harder for patients to attend available appointments.
   }
 
    // Worked example, continuing the two nodes above — delete once you add your own:

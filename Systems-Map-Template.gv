@@ -205,28 +205,4 @@ label="R5 Reinforcing: Primary Capacity and Emergency Access";
     Emergency_Access; 
 // When primary care capacity decreases, patient are faced with a limited amount of appoinments avaliable, this eventually leads to the increase of ER visists
 
-   // Worked example, continuing the two nodes above — delete once you add your own:
-  // customers -> buzz [label="+"];  // More customers visiting generates more word-of-mouth and online reviews.
-
-  // --- Loop callouts (subgraph clusters) ---
-
-  // Worked example — copy, rename, and uncomment if your team finds a loop.
-  // (This one only closes into a real loop once "buzz -> customers" is
-  // also added above — see the instructions block for the full picture.)
-  //
-  // subgraph cluster_R1 {
-  //
-  //   label="R1 Reinforcing: <short description>";
-  //   style="rounded,dashed";
-  //   color="gray40";
-  //   fontname="Arial";
-  //   fontsize=12;
-  //
-  //   customers;
-  //   buzz;
-  //
-  //   /* One-sentence explanation of why this loop reinforces or balances. */
-  //
-  // }
-
-}
+  

@@ -113,7 +113,12 @@ digraph EmergencyDepartmentOvercrowding {
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
 health_it_interoperobility [label="Health Information Technology Interobility]; // Infrastructure
-fee_for_service_payment_prevalence [label="Fee-for-Service Payment Prevalence"]; // Payment Models 
+fee_for_service_payment_prevalence [label="Fee-for-Service Payment Prevalence"]; // Payment Models
+
+// Kelly - Elements 7-9
+transportation_barriers [label="Transportation Barriers in Low-Income Communities"]; // Structural Determinants
+prescription_medication_coverage [label="Prescription or Medication Coverage"]; // Pharmaceuticals and Devices
+federal_emtala [label="Federal EMTALA"]; // Federal and State Policy
 
   // --- Causal links (with polarity) ---
   // Natalie - Casual Links

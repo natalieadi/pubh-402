@@ -126,84 +126,111 @@ inequitable_health_resources [label="Inequitable Access to Health-Promoting Reso
 uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 
   // --- Causal links (with polarity) ---
-  // Natalie - Casual Links
+   // Natalie - Causal Links
   hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.
   primary_capacity -> emergency_access [label="-"]; // More primary care appointments reduce avoidable ED visits.
-  // Gabriela - Casual Links 
-  primary_care_clincian_supply -> primary_capacity [label="+"]; // more primary care clinicians can increase the numberof patients who can be scheduled and seen.
-  inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity
+
+  // Gabriela - Causal Links
+  primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.
+  inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity.
   uninsured_population -> prescription_medication_coverage [label="-"]; // A larger uninsured population can make it harder for people to obtain medication coverage and afford needed prescriptions.
-  // Evelyn - Casual Links 
+
+  // Evelyn - Causal Links
   nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
   health_it_interoperability -> emergency_access [label="+"]; // Better exchange of patient information can reduce delays caused by missing medical histories, test results, or other information.
-  fee_for_service_payment_prevalence -> primary_capacity [label="+, delay"]; // Greater reliance on payment per service may encourage providers to maintain or expand billable visit volume, which can affect primary care capacity over time.
-  // Kelly - Casual Links 
+  fee_for_service -> primary_capacity [label="+ delay"]; // Greater reliance on payment per service may encourage providers to maintain or expand billable visit volume, which can affect primary care capacity over time.
+
+  // Kelly - Causal Links
   transportation_barriers -> primary_capacity [label="-"]; // Transportation barriers can lead to missed or delayed primary care appointments, reducing the effective use of available primary care capacity.
-  primary_capacity -> transportation_barriers [label="-, delay"]; // Greater primary care capacity can increase the availability of care closer to patients, reducing the transportation burden over time.
+  primary_capacity -> transportation_barriers [label="- delay"]; // Greater primary care capacity can increase the availability of care closer to patients, reducing the transportation burden over time.
   prescription_medication_coverage -> emergency_access [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
   federal_emtala -> emergency_access [label="+"]; // EMTALA requires Medicare-participating hospitals with dedicated emergency departments to provide emergency screening and stabilizing treatment regardless of ability to pay.
 
-// Proposed feedback loop R1
-subgraph cluster_R1 {
-label="R1 Reinforcing: Patient Flow and Nursing Capacity";
+ // --- Loop callouts ---
+
+  // R1
+  subgraph cluster_R1 {
+
+    label="R1 Reinforcing: Patient Flow and Nursing Capacity";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
+
     hospital_beds;
     emergency_access;
     nursing_workforce_availability;
+
     // Better patient flow may support nursing retention over time.
     // More nurses allow more hospital beds to be staffed.
     // More hospital beds improve emergency department patient flow.
-
   }
-// Proposed feedback loop R2
-subgraph cluster_R2 {
-label="R2 Reinforcing: Primary-Care Equity and Workforce";
+
+
+  // R2
+  subgraph cluster_R2 {
+
+    label="R2 Reinforcing: Primary-Care Equity and Workforce";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
+
     primary_care_clinician_supply;
     inequitable_health_resources;
-    // More primary care clinicians can reduce unequal access to health-promoting resources, while inequitable access can make clinician recruitment and retention more difficult.
 
- }
-// Proposed feedback loop R3
-subgraph cluster_R3 {
-label="R3 Reinforcing: Primary care access and tranportation";
+    // More primary care clinicians can reduce unequal access to health-promoting resources.
+    // Greater inequity can make it more difficult for communities to attract and retain primary care clinicians over time.
+  }
+
+
+  // R3
+  subgraph cluster_R3 {
+
+    label="R3 Reinforcing: Primary Care Access and Transportation";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
-    Primary_Care_Capacity;
-    Transporation_Barriers;
-    // When primary care capacity decreases, transportation barriers can increase the difficulty of accessing primary care. Increased transporation barriers can further reduce primary care capacity by making it harder for patients to attend available appointments.
- 
- }
-// Proposed feedback loop R4
-subgraph cluster_R4 {
-label="R4 Reinforcing: Perscription and Medication Coverage";
-    style="rounded, dashed";
-    color="gray40"
-    fontname="Arial"; 
-    fontsize=12; 
-    Percription_Medication_Coverage;
-    Medication_Affortability;
-//When prescription medication coverage decrease, patients rely on personal expense increase. Higher financial cost reduce perscription coverage for access to any affordable medication.
 
-}
-// Proposed feedback loop R5
-subgraph cluster_R5 { 
-label="R5 Reinforcing: Primary Capacity and Emergency Access";
-    style="rounded, dashed";
-    color="gray40"
-    fontname="Arial"; 
-    fontsize=12; 
-    Primary_Capacity; 
-    Emergency_Access; 
-// When primary care capacity decreases, patient are faced with a limited amount of appoinments avaliable, this eventually leads to the increase of ER visists
+    primary_capacity;
+    transportation_barriers;
+
+    // When primary care capacity decreases, transportation barriers can make accessing primary care more difficult.
+    // Increased transportation barriers can further reduce primary care capacity by making it harder for patients to attend available appointments.
+  }
+
+
+  // R4
+  subgraph cluster_R4 {
+
+    label="R4 Reinforcing: Prescription and Medication Coverage";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    prescription_medication_coverage;
+    uninsured_population;
+
+    // When prescription medication coverage decreases, financial barriers to obtaining medications can increase.
+  }
+
+
+  // R5
+  subgraph cluster_R5 {
+
+    label="R5 Reinforcing: Primary Capacity and Emergency Access";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    primary_capacity;
+    emergency_access;
+
+    // When primary care capacity decreases, patients have fewer appointments available, which can eventually increase emergency department visits.
+  }
 
 }
   

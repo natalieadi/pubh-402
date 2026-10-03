@@ -130,18 +130,18 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.
   primary_capacity -> emergency_access [label="-"]; // More primary care appointments reduce avoidable ED visits.
   // Gabriela - Casual Links 
-  // primary_care_clincian_supply -> primary_capacity [label="+"]; // more primary care clinicians can increase the numberof patients who can be scheduled and seen.
-  // inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity
-  // uninsured_population -> prescription_medication_coverage [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
+  primary_care_clincian_supply -> primary_capacity [label="+"]; // more primary care clinicians can increase the numberof patients who can be scheduled and seen.
+  inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity
+  uninsured_population -> prescription_medication_coverage [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
   // Evelyn - Casual Links 
-  // nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
-  // health_it_interoperability -> emergency_access [label="+"]; // Better exchange of patient information can reduce delays caused by missing medical histories, test results, or other information.
-  // fee_for_service_payment_prevalence -> primary_capacity [label="+, delay"]; // Greater reliance on payment per service may encourage providers to maintain or expand billable visit volume, which can affect primary care capacity over time.
+  nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
+  health_it_interoperability -> emergency_access [label="+"]; // Better exchange of patient information can reduce delays caused by missing medical histories, test results, or other information.
+  fee_for_service_payment_prevalence -> primary_capacity [label="+, delay"]; // Greater reliance on payment per service may encourage providers to maintain or expand billable visit volume, which can affect primary care capacity over time.
   // Kelly - Casual Links 
-  // transportation_barriers -> primary_capacity [label="-"]; // Transportation barriers can lead to missed or delayed primary care appointments, reducing the effective use of available primary care capacity.
-  // primary_capacity -> transportation_barriers [label="-, delay"]; // Greater primary care capacity can increase the availability of care closer to patients, reducing the transportation burden over time.
-  // prescription_medication_coverage -> emergency_access [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
-  // federal_emtala -> emergency_access [label="+"]; // EMTALA requires Medicare-participating hospitals with dedicated emergency departments to provide emergency screening and stabilizing treatment regardless of ability to pay.
+  transportation_barriers -> primary_capacity [label="-"]; // Transportation barriers can lead to missed or delayed primary care appointments, reducing the effective use of available primary care capacity.
+  primary_capacity -> transportation_barriers [label="-, delay"]; // Greater primary care capacity can increase the availability of care closer to patients, reducing the transportation burden over time.
+  prescription_medication_coverage -> emergency_access [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
+  federal_emtala -> emergency_access [label="+"]; // EMTALA requires Medicare-participating hospitals with dedicated emergency departments to provide emergency screening and stabilizing treatment regardless of ability to pay.
 
 // Proposed feedback loop R1
 subgraph cluster_R1 {

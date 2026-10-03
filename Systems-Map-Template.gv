@@ -182,7 +182,7 @@ label="R3 Reinforcing: Primary care access and tranportation";
     // When primary care capacity decreases, transportation barriers can increase the difficulty of accessing primary care. Increased transporation barriers can further reduce primary care capacity by making it harder for patients to attend available appointments.
  
  }
-// Proprosed feedback loop R4
+// Proposed feedback loop R4
 subgraph cluster_R4 {
 label="R4 Reinforcing: Perscription and Medication Coverage";
     style="rounded, dashed";
@@ -193,7 +193,17 @@ label="R4 Reinforcing: Perscription and Medication Coverage";
     Medication_Affortability;
 //When prescription medication coverage decrease, patients rely on personal expense increase. Higher financial cost reduce perscription coverage for access to any affordable medication.
 
-
+}
+// Proposed feedback loop R5
+subgraph cluster_R5 { 
+label="R5 Reinforcing: Primary Capacity and Emergency Access";
+    style="rounded, dashed";
+    color="gray40"
+    fontname="Arial"; 
+    fontsize=12; 
+    Primary_Capacity; 
+    Emergency_Access; 
+// When primary care capacity decreases, patient are faced with a limited amount of appoinments avaliable, this eventually leads to the increase of ER visists
 
    // Worked example, continuing the two nodes above — delete once you add your own:
   // customers -> buzz [label="+"];  // More customers visiting generates more word-of-mouth and online reviews.

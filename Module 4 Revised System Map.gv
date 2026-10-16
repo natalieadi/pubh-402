@@ -1,0 +1,145 @@
+
+// Team Number: 6
+// Class Section: 51
+// Team Member Names: Natalie Adi, Evelyn Herrera Ayala, Kelly Madrigal, Gabriela Quezada, Chelsea Umana
+// Health Topic: Emergency Department Overcrowding
+
+digraph EmergencyDepartmentOvercrowding {
+
+  rankdir=TD;
+
+  node [shape=box, style="rounded, filled", fillcolor="white", fontname="Arial"];
+
+  edge [fontname="Arial", fontsize=10];
+
+  // --- Nodes (your selected elements) ---
+
+  // Natalie - Elements 1-3
+  hospital_beds [label="Hospital Bed Capacity"]; // Infrastructure
+  emergency_access [label="Emergency Care Access"]; // Infrastructure
+  primary_capacity [label="Primary Care Visit Capacity"]; // Care 
+
+// Evelyn - Elements 4-6
+nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
+health_it_interoperobility [label="Health Information Technology Interobility"]; // Infrastructure
+fee_for_service [label="Fee-for-Service Payment Prevalence"]; // Payment Models
+
+// Kelly - Elements 7-9
+transportation_barriers [label="Transportation Barriers in Low-Income Communities"]; // Structural Determinants
+prescription_medication_coverage [label="Prescription or Medication Coverage"]; // Pharmaceuticals and Devices
+federal_emtala [label="Federal EMTALA"]; // Federal and State Policy
+
+// Gabriela - Elements 10-12 
+primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
+inequitable_health_resources [label="Inequitable Access to Health-Promoting Resources"]; // Structural Inequities
+uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
+
+  // --- Causal links (with polarity) ---
+   // Natalie - Causal Links
+  hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.
+  primary_capacity -> emergency_access [label="-"]; // More primary care appointments reduce avoidable ED visits.
+
+  // Gabriela - Causal Links
+  primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.
+  inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity.
+  uninsured_population -> prescription_medication_coverage [label="-"]; // A larger uninsured population can make it harder for people to obtain medication coverage and afford needed prescriptions.
+
+  // Evelyn - Causal Links
+  nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
+  health_it_interoperability -> emergency_access [label="+"]; // Better exchange of patient information can reduce delays caused by missing medical histories, test results, or other information.
+  fee_for_service -> primary_capacity [label="+ delay"]; // Greater reliance on payment per service may encourage providers to maintain or expand billable visit volume, which can affect primary care capacity over time.
+
+  // Kelly - Causal Links
+  transportation_barriers -> primary_capacity [label="-"]; // Transportation barriers can lead to missed or delayed primary care appointments, reducing the effective use of available primary care capacity.
+  primary_capacity -> transportation_barriers [label="- delay"]; // Greater primary care capacity can increase the availability of care closer to patients, reducing the transportation burden over time.
+  prescription_medication_coverage -> emergency_access [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
+  federal_emtala -> emergency_access [label="+"]; // EMTALA requires Medicare-participating hospitals with dedicated emergency departments to provide emergency screening and stabilizing treatment regardless of ability to pay.
+
+ // --- Loop callouts ---
+
+  // R1
+  subgraph cluster_R1 {
+
+    label="R1 Reinforcing: Patient Flow and Nursing Capacity";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    hospital_beds;
+    emergency_access;
+    nursing_workforce_availability;
+
+    // Better patient flow may support nursing retention over time.
+    // More nurses allow more hospital beds to be staffed.
+    // More hospital beds improve emergency department patient flow.
+  }
+
+
+  // R2
+  subgraph cluster_R2 {
+
+    label="R2 Reinforcing: Primary-Care Equity and Workforce";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    primary_care_clinician_supply;
+    inequitable_health_resources;
+
+    // More primary care clinicians can reduce unequal access to health-promoting resources.
+    // Greater inequity can make it more difficult for communities to attract and retain primary care clinicians over time.
+  }
+
+
+  // R3
+  subgraph cluster_R3 {
+
+    label="R3 Reinforcing: Primary Care Access and Transportation";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    primary_capacity;
+    transportation_barriers;
+
+    // When primary care capacity decreases, transportation barriers can make accessing primary care more difficult.
+    // Increased transportation barriers can further reduce primary care capacity by making it harder for patients to attend available appointments.
+  }
+
+
+  // R4
+  subgraph cluster_R4 {
+
+    label="R4 Reinforcing: Prescription and Medication Coverage";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    prescription_medication_coverage;
+    uninsured_population;
+
+    // When prescription medication coverage decreases, financial barriers to obtaining medications can increase.
+  }
+
+
+  // R5
+  subgraph cluster_R5 {
+
+    label="R5 Reinforcing: Primary Capacity and Emergency Access";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    primary_capacity;
+    emergency_access;
+
+    // When primary care capacity decreases, patients have fewer appointments available, which can eventually increase emergency department visits.
+  }
+
+}
+  

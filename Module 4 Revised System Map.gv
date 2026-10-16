@@ -25,9 +25,9 @@ health_it_interoperobility [label="Health Information Technology Interobility"];
 fee_for_service [label="Fee-for-Service Payment Prevalence"]; // Payment Models
 
 // Kelly - Elements 7-9
-transportation_barriers [label="Transportation Barriers in Low-Income Communities"]; // Structural Determinants
-prescription_medication_coverage [label="Prescription or Medication Coverage"]; // Pharmaceuticals and Devices
-federal_emtala [label="Federal EMTALA"]; // Federal and State Policy
+transportation_access [label="Transportation Access"]; // Structural Determinants
+drug_forumulary_restrictions [label="Drug Forumulary Restrictions"]; // Pharmaceuticals and Devices
+federal_regulatory_requirements [label="Federal Regulatory Requirements"]; // Federal and State Policy
 
 // Gabriela - Elements 10-12 
 primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
@@ -42,7 +42,7 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   // Gabriela - Causal Links
   primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.
   inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity.
-  uninsured_population -> prescription_medication_coverage [label="-"]; // A larger uninsured population can make it harder for people to obtain medication coverage and afford needed prescriptions.
+  uninsured_population -> drug_formulary_restrictions [label="+"]; // Insurance status and formulary restrictions may affect medication access differently. This connection needs to be reconsidered.
 
   // Evelyn - Causal Links
   nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
@@ -50,12 +50,12 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   fee_for_service -> primary_capacity [label="+ delay"]; // Greater reliance on payment per service may encourage providers to maintain or expand billable visit volume, which can affect primary care capacity over time.
 
   // Kelly - Causal Links
-  transportation_barriers -> primary_capacity [label="-"]; // Transportation barriers can lead to missed or delayed primary care appointments, reducing the effective use of available primary care capacity.
-  primary_capacity -> transportation_barriers [label="- delay"]; // Greater primary care capacity can increase the availability of care closer to patients, reducing the transportation burden over time.
-  prescription_medication_coverage -> emergency_access [label="-"]; // Better medication coverage can reduce reliance on emergency care when health conditions can be managed with ongoing treatment.
-  federal_emtala -> emergency_access [label="+"]; // EMTALA requires Medicare-participating hospitals with dedicated emergency departments to provide emergency screening and stabilizing treatment regardless of ability to pay.
-
- // --- Loop callouts ---
+  transportation_access -> primary_capacity [label="+"]; // Greater transportation access can help patients attend scheduled primary care appointments, increasing the effective use of available visit capacity.
+  primary_capacity -> transportation_access [label="+ delay"]; // Expanding primary care services into more accessible locations could improve transportation access over time. This relationship needs further evidence.
+  drug_formulary restrictions -> emergency_access [label="-"]; // Greater formulary restrictions may make medications harder to obtain, potentially increasing emergency care use. Emergency care access is not the same as emergency department crowding, so this relationship needs revision.
+  federal_regulatory_requirements-> emergency_access [label="+"]; // Federal regulations such as EMTALA require covered emergency departments to provide medical screening and necessary stabilizing treatment. This relationship represents legal access obligations, not necessarily greater emergency department capacity.
+ 
+// --- Loop callouts ---
 
   // R1
   subgraph cluster_R1 {
@@ -103,26 +103,28 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
     fontsize=12;
 
     primary_capacity;
-    transportation_barriers;
+    transportation_access;
 
-    // When primary care capacity decreases, transportation barriers can make accessing primary care more difficult.
-    // Increased transportation barriers can further reduce primary care capacity by making it harder for patients to attend available appointments.
+    // Greater transportation access can help patients attend primary care appointments and make better use of available services.
+   // However, increasing primary care visit capacity does not automatically improve transportation access. This return relationship needs more research and may need to be revised.
   }
 
 
   // R4
   subgraph cluster_R4 {
 
-    label="R4 Reinforcing: Prescription and Medication Coverage";
+    label="R4 Reinforcing: Medication Access and Emergency Care";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
 
-    prescription_medication_coverage;
+    drug_formulary_restrictions;
     uninsured_population;
 
-    // When prescription medication coverage decreases, financial barriers to obtaining medications can increase.
+  // Drug formulary restrictions can limit access to certain medications.
+  // This may contribute to difficulties managing chronic conditions.
+  // R4 is not yet a closed feedback loop and needs to be redesigned.
   }
 
 

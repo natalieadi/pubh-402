@@ -33,6 +33,8 @@ federal_regulatory_requirements [label="Federal Regulatory Requirements"]; // Fe
 primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
 inequitable_health_resources [label="Inequitable Access to Health-Promoting Resources"]; // Structural Inequities
 uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
+// Additional element for R2
+primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Custom Workforce element was added to show how having too much work can affect primary care clinicians.
 
   // --- Causal links (with polarity) ---
    // Natalie - Causal Links
@@ -41,6 +43,8 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 
   // Gabriela - Causal Links
   primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.
+  primary_capacity -> primary_care_clinician_workload [label="-"]; // When there are enough appointments available for patients, it may help lower the amount of pressure placed on clinicians.
+  primary_care_clinician_workload -> primary_care_clinician_supply [label="- delay"]; // When clinicians have too much work, they may experience burnout or leave their jobs. Over time, this can lead to fewer available clinicians.
   inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity.
   uninsured_population -> drug_formulary_restrictions [label="+"]; // Insurance status and formulary restrictions may affect medication access differently. This connection needs to be reconsidered.
 
@@ -76,22 +80,42 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   }
 
 
-  // R2
+  // R2 - Gabriela 
   subgraph cluster_R2 {
 
-    label="R2 Reinforcing: Primary-Care Equity and Workforce";
-    style="rounded,dashed";
-    color="gray40";
-    fontname="Arial";
-    fontsize=12;
+  label="R2 Reinforcing: Primary Care Workforce and Capacity";
+  style="rounded,dashed";
+  color="gray40";
+  fontname="Arial";
+  fontsize=12;
 
-    primary_care_clinician_supply;
-    inequitable_health_resources;
+  primary_care_clinician_supply;
+  primary_capacity;
+  primary_care_clinician_workload;
 
-    // More primary care clinicians can reduce unequal access to health-promoting resources.
-    // Greater inequity can make it more difficult for communities to attract and retain primary care clinicians over time.
-  }
+  // This loop shows how the number of primary care clinicians
+  // can affect the number of appointments available to patients.
+  // When there are more clinicians, more appointments may be offered.
+  // If there are enough appointments to meet patient needs,
+  // clinicians may feel less pressure from their workload.
+  // Having less work-related stress may also help prevent burnout
+  // and lower the chances of clinicians leaving their jobs.
 
+  // The loop starts with Primary Care Clinician Supply,
+  // moves to Primary Care Visit Capacity, then to
+  // Primary Care Clinician Workload, and returns
+  // to Primary Care Clinician Supply.
+
+  // This is a reinforcing loop because it has two negative links.
+  // The last link has a delay because burnout and leaving a job
+  // usually happen over time rather than immediately.
+
+  // One thing we are still unsure about is whether having more
+  // appointments available always means clinicians have less work.
+  // This may depend on how many patients need appointments
+  // and how the work is divided among clinicians.
+}
+  
 
   // R3
   subgraph cluster_R3 {
@@ -478,7 +502,19 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
  // Our revised element selection is intended to make the relationships
  // more specific while keeping the system manageable.
 
+// --- EXTRA ELEMENT ADDED FOR MODULE 4 ---
 
+// Primary Care Clinician Workload - INCLUDED (Custom Element)
+// We added this element because our original R2 loop did not
+// fully connect back to where it started.
+// We wanted to show how the amount of work clinicians have
+// can affect whether they stay in their jobs.
+// When clinicians have too much work, they may experience
+// burnout or decide to leave, which can make the shortage
+// of primary care clinicians worse.
+// Even though this element is not on the official list,
+// we included it because it helps explain the connection
+// between primary care staffing and workload.
 
 }
   

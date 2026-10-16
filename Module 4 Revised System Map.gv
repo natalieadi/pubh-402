@@ -36,6 +36,10 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 // Additional element for R2
 primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Custom Workforce element was added to show how having too much work can affect primary care clinicians.
 
+
+  // Chelsea - Element for R5
+  ed_crowding [label="Emergency Department Crowding"]; // Infrastructure
+
   // --- Causal links (with polarity) ---
    // Natalie - Causal Links
   hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.
@@ -58,7 +62,14 @@ primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Cu
   primary_capacity -> transportation_access [label="+ delay"]; // Expanding primary care services into more accessible locations could improve transportation access over time. This relationship needs further evidence.
   drug_formulary_restrictions -> emergency_access [label="-"]; // Greater formulary restrictions may make medications harder to obtain, potentially increasing emergency care use. Emergency care access is not the same as emergency department crowding, so this relationship needs revision.
   federal_regulatory_requirements-> emergency_access [label="+"]; // Federal regulations such as EMTALA require covered emergency departments to provide medical screening and necessary stabilizing treatment. This relationship represents legal access obligations, not necessarily greater emergency department capacity.
- 
+
+
+  // Chelsea - Causal Links for R5
+  ed_crowding -> nursing_workforce_availability [label="+ delay"]; // More ED crowding may lead the hospital to try to bring in or reassign nurses, but this takes time.
+ nursing_workforce_availability -> hospital_beds [label="+"]; // More available nurses can help the hospital staff more beds.
+hospital_beds -> ed_crowding [label="-"]; // More available hospital beds can help reduce ED crowding.
+
+
 // --- Loop callouts ---
 
   // R1
@@ -160,20 +171,40 @@ label="R2 Reinforcing: Primary Care Staffing and Workload";
   // R4 is not yet a closed feedback loop and needs to be redesigned.
   }
 
+// R5 - Chelsea
+subgraph cluster_R5 {
 
-  // R5
-  subgraph cluster_R5 {
-
-    label="R5 Reinforcing: Primary Capacity and Emergency Access";
+    label="B5 Balancing: Emergency Crowding and Hospital Staffing";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
 
-    primary_capacity;
-    emergency_access;
+    ed_crowding;
+    nursing_workforce_availability;
+    hospital_beds;
 
-    // When primary care capacity decreases, patients have fewer appointments available, which can eventually increase emergency department visits.
+    // When the emergency department becomes overcrowded,
+    // hospitals may try to bring in more nurses or reassign staff.
+    // More available nurses can help hospitals staff more beds.
+    // More available hospital beds can help reduce
+    // emergency department crowding.
+
+    // This is a balancing loop because it has
+    // two positive arrows and one negative arrow.
+
+    // There may be a delay because finding or reassigning
+    // nurses takes time. If there is a nursing shortage,
+    // the hospital may not be able to respond.
+
+    // RESEARCH FOR R5
+    // AHRQ - Emergency Department Boarding Summit Report
+    // https://www.ahrq.gov/sites/default/files/wysiwyg/topics/ed-boarding-summit-report.pdf
+
+    // Morley et al. (2018)
+    // https://pmc.ncbi.nlm.nih.gov/articles/PMC6117060/
+}
+
   }
 // ----------------------------------------------------------------------
  // MODULE 4 - ELEMENT RECONSIDERATION

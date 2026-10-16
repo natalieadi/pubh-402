@@ -43,7 +43,7 @@ primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Cu
 
   // Gabriela - Causal Links
   primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.
-  primary_capacity -> primary_care_clinician_workload [label="-"]; // When there are enough appointments available for patients, it may help lower the amount of pressure placed on clinicians.
+  primary_care_clinician_supply -> primary_care_clinician_workload [label="-"]; // When there are fewer primary care clinicians, the remaining clinicians may have to care for more patients, increasing their workload.
   primary_care_clinician_workload -> primary_care_clinician_supply [label="- delay"]; // When clinicians have too much work, they may experience burnout or leave their jobs. Over time, this can lead to fewer available clinicians.
   inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity.
   uninsured_population -> drug_formulary_restrictions [label="+"]; // Insurance status and formulary restrictions may affect medication access differently. This connection needs to be reconsidered.
@@ -83,37 +83,46 @@ primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Cu
   // R2 - Gabriela 
   subgraph cluster_R2 {
 
-  label="R2 Reinforcing: Primary Care Workforce and Capacity";
+label="R2 Reinforcing: Primary Care Staffing and Workload";
   style="rounded,dashed";
   color="gray40";
   fontname="Arial";
   fontsize=12;
 
   primary_care_clinician_supply;
-  primary_capacity;
   primary_care_clinician_workload;
 
-  // This loop shows how the number of primary care clinicians
-  // can affect the number of appointments available to patients.
-  // When there are more clinicians, more appointments may be offered.
-  // If there are enough appointments to meet patient needs,
-  // clinicians may feel less pressure from their workload.
-  // Having less work-related stress may also help prevent burnout
-  // and lower the chances of clinicians leaving their jobs.
+  // This loop shows how having fewer primary care clinicians
+  // can lead to a higher workload for the clinicians who remain.
+  // When clinicians have too much work, they may experience burnout
+  // and some may decide to leave their jobs.
+  // This can lead to even fewer clinicians being available,
+  // which increases the workload again.
 
   // The loop starts with Primary Care Clinician Supply,
-  // moves to Primary Care Visit Capacity, then to
-  // Primary Care Clinician Workload, and returns
-  // to Primary Care Clinician Supply.
+  // moves to Primary Care Clinician Workload, and then
+  // returns to Primary Care Clinician Supply.
 
-  // This is a reinforcing loop because it has two negative links.
-  // The last link has a delay because burnout and leaving a job
-  // usually happen over time rather than immediately.
+  // This is a reinforcing loop because both arrows are negative.
+  // The second arrow has a delay because burnout and leaving
+  // a job usually happen over time.
 
-  // One thing we are still unsure about is whether having more
-  // appointments available always means clinicians have less work.
-  // This may depend on how many patients need appointments
-  // and how the work is divided among clinicians.
+  // This loop assumes that patient demand stays about the same.
+  // If there are fewer clinicians but the same number of patients,
+  // the remaining clinicians may have more work.
+
+  // RESEARCH FOR R2
+
+  // Source 1: Revitalizing Primary Care (2022)
+  // This article discusses how heavy workloads and burnout
+  // can make it harder to keep primary care clinicians.
+  // https://pmc.ncbi.nlm.nih.gov/articles/PMC9512560/
+
+  // Source 2: Primary Care Staffing and Burnout (2017)
+  // This study looks at how staffing and workload are
+  // related to burnout among primary care team members.
+  // https://pubmed.ncbi.nlm.nih.gov/28233221/
+
 }
   
 

@@ -21,12 +21,12 @@ digraph EmergencyDepartmentOvercrowding {
 
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
-health_it_interoperobility [label="Health Information Technology Interobility"]; // Infrastructure
+health_it_interoperability [label="Health Information Technology Interoperability"]; // Infrastructure
 fee_for_service [label="Fee-for-Service Payment Prevalence"]; // Payment Models
 
 // Kelly - Elements 7-9
 transportation_access [label="Transportation Access"]; // Structural Determinants
-drug_forumulary_restrictions [label="Drug Forumulary Restrictions"]; // Pharmaceuticals and Devices
+drug_formulary_restrictions [label="Drug Formulary Restrictions"]; // Pharmaceuticals and Devices
 federal_regulatory_requirements [label="Federal Regulatory Requirements"]; // Federal and State Policy
 
 // Gabriela - Elements 10-12 
@@ -52,7 +52,7 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
   // Kelly - Causal Links
   transportation_access -> primary_capacity [label="+"]; // Greater transportation access can help patients attend scheduled primary care appointments, increasing the effective use of available visit capacity.
   primary_capacity -> transportation_access [label="+ delay"]; // Expanding primary care services into more accessible locations could improve transportation access over time. This relationship needs further evidence.
-  drug_formulary restrictions -> emergency_access [label="-"]; // Greater formulary restrictions may make medications harder to obtain, potentially increasing emergency care use. Emergency care access is not the same as emergency department crowding, so this relationship needs revision.
+  drug_formulary_restrictions -> emergency_access [label="-"]; // Greater formulary restrictions may make medications harder to obtain, potentially increasing emergency care use. Emergency care access is not the same as emergency department crowding, so this relationship needs revision.
   federal_regulatory_requirements-> emergency_access [label="+"]; // Federal regulations such as EMTALA require covered emergency departments to provide medical screening and necessary stabilizing treatment. This relationship represents legal access obligations, not necessarily greater emergency department capacity.
  
 // --- Loop callouts ---
@@ -142,7 +142,7 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 
     // When primary care capacity decreases, patients have fewer appointments available, which can eventually increase emergency department visits.
   }
-----------------------------------------------------------------------
+// ----------------------------------------------------------------------
  // MODULE 4 - ELEMENT RECONSIDERATION
  // Team 6 | Section 51
  // Health Topic: Emergency Department Overcrowding

@@ -140,6 +140,343 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 
     // When primary care capacity decreases, patients have fewer appointments available, which can eventually increase emergency department visits.
   }
+----------------------------------------------------------------------
+ // MODULE 4 - ELEMENT RECONSIDERATION
+ // Team 6 | Section 51
+ // Health Topic: Emergency Department Overcrowding
+
+ // --- ELEMENTS WE DECIDED TO KEEP ---
+
+ // 1. Hospital Bed Capacity - KEEP (Infrastructure)
+ // We kept this element because having fewer available hospital beds
+ // can cause admitted patients to remain in the emergency department.
+ // This takes up space needed for incoming patients and increases overcrowding.
+
+ // 2. Emergency Care Access - KEEP (Infrastructure)
+ // We kept this element because overcrowding can affect how quickly
+ // patients receive emergency care. When the emergency department
+ // is too busy, patients may experience longer waits and delayed treatment.
+
+ // 3. Primary Care Visit Capacity - KEEP (Care Providers)
+ // We kept this element because patients who cannot get primary care
+ // appointments may go to the emergency department instead.
+ // More available appointments could help reduce avoidable emergency visits.
+
+ // 4. Nursing Workforce Availability - KEEP (Workforce)
+ // We kept this element because nurses are needed to assess, treat,
+ // and monitor patients. Having fewer nurses available can slow down
+ // patient care and increase the time patients spend in the emergency department.
+
+ // 5. Health Information Technology Interoperability - KEEP (Infrastructure)
+ // We kept this element because sharing patient information between
+ // healthcare facilities can help providers make treatment decisions.
+ // Problems exchanging information may cause delays in patient care.
+
+ // 6. Fee-for-Service Payment Prevalence - KEEP (Payment Models)
+ // We kept this element because the way healthcare providers are paid
+ // can influence how services are delivered. We want to better understand
+ // whether this payment model affects primary care appointment availability
+ // and patients' reliance on emergency departments.
+
+ // 7. Primary Care Clinician Supply - KEEP (Workforce)
+ // We kept this element because the number of available primary care
+ // clinicians affects how many patients can receive appointments.
+ // When there are not enough clinicians, patients may have difficulty
+ // getting regular care and may eventually seek emergency treatment.
+
+ // 8. Inequitable Access to Health-Promoting Resources - KEEP (Structural Inequities)
+ // We kept this element because some communities have fewer resources
+ // that help people prevent and manage health problems.
+ // This can increase unmet healthcare needs and eventually contribute
+ // to greater demand for emergency services.
+
+ // 9. Uninsured Population Size - KEEP (Financing/Insurance)
+ // We kept this element because people without health insurance may
+ // have difficulty paying for regular healthcare and medications.
+ // Delaying needed care can make health conditions worse and may
+ // increase the need for emergency treatment.
+
+
+ // --- ELEMENTS WE DECIDED TO REPLACE ---
+
+ // Transportation Barriers in Low-Income Communities - REPLACE
+ // This was a custom element in our original map.
+ // We decided to use Transportation Access from the professor's list instead.
+ // It still allows us to examine how transportation affects patients'
+ // ability to attend primary care appointments, but uses an official element.
+ // We will also need to adjust the polarity of our original relationships
+ // because greater transportation access means fewer transportation barriers.
+
+ // Prescription or Medication Coverage - REPLACE
+ // This was another custom element in our original map.
+ // We decided to use Drug Formulary Restrictions from the official list.
+ // This focuses more specifically on how insurance coverage restrictions
+ // can limit patients' access to certain medications.
+ // We will need to revise the related arrows because formulary restrictions
+ // are not the same as overall medication coverage.
+
+ // Federal EMTALA - REPLACE
+ // Our original element focused on the federal law that requires certain
+ // hospitals to provide emergency screening and stabilizing treatment.
+ // We decided to use Federal Regulatory Requirements from the official list.
+ // EMTALA can still be discussed as an example of a federal requirement,
+ // but we need to make sure our arrows describe the broader element.
+
+
+ // --- NEWLY SELECTED ELEMENTS FROM THE OFFICIAL LIST ---
+
+ // Transportation Access - INCLUDE (Structural Determinants)
+ // We included this because reliable transportation affects whether
+ // patients can attend primary care appointments.
+ // Better transportation access may reduce missed appointments
+ // and help patients receive care before their conditions become urgent.
+
+ // Drug Formulary Restrictions - INCLUDE (Pharmaceuticals and Devices)
+ // We included this because insurance restrictions may prevent patients
+ // from obtaining certain medications needed to manage their conditions.
+ // This could contribute to worsening health problems and emergency visits.
+ // We still need research to understand how strong this relationship is.
+
+ // Federal Regulatory Requirements - INCLUDE (Federal and State Policy)
+ // We included this because federal requirements influence how hospitals
+ // provide emergency care. EMTALA is one example that affects hospitals'
+ // responsibilities toward patients seeking emergency treatment.
+ // We want to examine how these requirements interact with hospital capacity.
+
+
+ // --- RECONSIDERATION OF OTHER ELEMENTS NOT SELECTED ---
+
+ // CARE PROVIDERS
+
+ // Primary Care Care Coordination Capacity - REMAIN EXCLUDED
+ // This could affect patient follow-up and referrals, but our current
+ // map focuses more on the number of appointments available.
+
+ // Specialty Care Visit Capacity - REMAIN EXCLUDED
+ // Specialist appointment shortages may contribute to delays in care,
+ // but we are currently focusing on primary care access.
+
+ // Specialty Care Referral Availability - REMAIN EXCLUDED
+ // Referrals may affect patient treatment, but we have not yet identified
+ // a clear feedback relationship involving specialist referrals.
+
+ // Language Access Service Availability - REMAIN EXCLUDED
+ // Language barriers can affect healthcare access, but our current map
+ // focuses on staffing, insurance, and primary care availability.
+
+
+ // FEDERAL AND STATE POLICY
+
+ // Medicaid Eligibility Rules - REMAIN EXCLUDED
+ // These rules may affect insurance coverage, but our map currently
+ // uses uninsured population size to represent insurance-related barriers.
+
+ // Medicare Coverage Rules - REMAIN EXCLUDED
+ // Medicare coverage affects access to services, but we have not
+ // identified a specific relationship needed for our current loops.
+
+ // State Scope-of-Practice Laws - REMAIN EXCLUDED
+ // These laws may influence which providers can deliver primary care,
+ // but our current map focuses on the number of clinicians available.
+
+
+ // ENFORCEMENT AND ACCOUNTABILITY
+
+ // Capacity for Administrative Processing - REMAIN EXCLUDED
+ // Processing delays may affect coverage and services, but this is
+ // not a major relationship in our current map.
+
+ // Sanctions - REMAIN EXCLUDED
+ // Penalties can affect hospital behavior, but we have not identified
+ // a direct feedback relationship with emergency department overcrowding.
+
+ // Reimbursement Requirements - REMAIN EXCLUDED
+ // These requirements influence provider payments, but we are focusing
+ // on fee-for-service payment prevalence instead.
+
+ // Administrative Staffing - REMAIN EXCLUDED
+ // Administrative workers support healthcare operations, but our
+ // current staffing focus is on nurses and primary care clinicians.
+
+
+ // FINANCING AND INSURANCE
+
+ // Medicare Enrollment - REMAIN EXCLUDED
+ // Medicare enrollment affects insurance coverage, but uninsured
+ // population size is more directly connected to our current questions.
+
+ // Medicaid Enrollment - REMAIN EXCLUDED
+ // Medicaid coverage may help patients obtain regular care, but we
+ // are currently examining insurance barriers more broadly.
+
+ // Employer-Based Insurance Enrollment - REMAIN EXCLUDED
+ // This affects healthcare coverage, but we are focusing on the
+ // number of people who do not have insurance.
+
+
+ // FUNDING
+
+ // State General Fund Health Allocations - REMAIN EXCLUDED
+ // State funding may affect healthcare resources, but the relationship
+ // is more indirect than the capacity factors in our current map.
+
+ // Federal Discretionary Health Funding - REMAIN EXCLUDED
+ // Federal funding may support healthcare services, but we have not
+ // identified a specific feedback loop involving this funding.
+
+ // Public Health Grant Funding - REMAIN EXCLUDED
+ // Grants may support prevention programs, but these programs are
+ // not currently a central part of our map.
+
+ // Safety-Net Provider Subsidies - REMAIN EXCLUDED
+ // Subsidies may help hospitals and clinics serving uninsured patients,
+ // but we have not yet developed this financing relationship.
+
+ // Household Out-of-Pocket Spending - REMAIN EXCLUDED
+ // Higher personal healthcare costs can discourage regular care,
+ // but we are currently using uninsured population size and
+ // drug formulary restrictions to examine financial access barriers.
+
+
+ // PAYMENT MODELS
+
+ // Value-Based Payment Adoption - REMAIN EXCLUDED
+ // This could influence preventive care, but we are currently
+ // examining fee-for-service payments instead.
+
+ // Capitated Payment Prevalence - REMAIN EXCLUDED
+ // This payment model could affect care delivery, but we have not
+ // identified a clear relationship with our existing feedback loops.
+
+ // Bundled Payment Use - REMAIN EXCLUDED
+ // Bundled payments affect reimbursement for episodes of care,
+ // but they are less central to our current primary care access focus.
+
+
+ // PHARMACEUTICALS AND DEVICES
+
+ // Prescription Drug Pricing Levels - REMAIN EXCLUDED
+ // Medication prices can affect affordability, but our revised map
+ // focuses on insurance formulary restrictions.
+
+ // Medical Device Availability - REMAIN EXCLUDED
+ // Equipment availability may affect treatment delays, but our
+ // current map focuses more on staffing and patient access.
+
+ // Pharmaceutical Market Concentration - REMAIN EXCLUDED
+ // Market concentration can affect medication pricing, but its
+ // relationship with emergency department overcrowding is more indirect.
+
+
+ // PUBLIC HEALTH
+
+ // Public Health Surveillance Capacity - REMAIN EXCLUDED
+ // Surveillance helps identify health trends, but it is not currently
+ // part of the patient flow relationships in our map.
+
+ // Preventive Service Availability - REMAIN EXCLUDED
+ // Preventive services could reduce avoidable emergency visits,
+ // but we are currently focusing on primary care visit capacity.
+
+ // Community-Based Health Program Capacity - REMAIN EXCLUDED
+ // Community programs may help patients manage their health,
+ // but we have not yet developed their connection to our feedback loops.
+
+ // Health Communication Effectiveness - REMAIN EXCLUDED
+ // Health communication may influence healthcare decisions,
+ // but it is not a major relationship in our current map.
+
+ // Substance Use Treatment Capacity - REMAIN EXCLUDED
+ // Treatment availability could affect some emergency visits,
+ // but our map examines broader causes of overcrowding.
+
+ // Trust in Health Institutions - REMAIN EXCLUDED
+ // Trust may influence whether people seek care, but we have
+ // not yet established its role in our current causal relationships.
+
+
+ // STRUCTURAL DETERMINANTS
+
+ // Housing Stability - REMAIN EXCLUDED
+ // Housing instability can worsen health conditions, but our
+ // current map focuses on transportation and healthcare access.
+
+ // Income Security - REMAIN EXCLUDED
+ // Income affects healthcare affordability, but we are currently
+ // focusing on insurance and transportation-related barriers.
+
+ // Environmental Conditions - REMAIN EXCLUDED
+ // Environmental conditions may increase health problems,
+ // but we have not identified a direct feedback relationship.
+
+ // Energy/Utility Affordability - REMAIN EXCLUDED
+ // Utility costs may affect household health and finances,
+ // but they are not central to our current map.
+
+ // Health Literacy - REMAIN EXCLUDED
+ // Health literacy can affect patients' healthcare decisions,
+ // but our current map focuses more on the availability of services.
+
+
+ // STRUCTURAL INEQUITIES
+
+ // Racialized Residential Segregation - REMAIN EXCLUDED
+ // Segregation may influence where healthcare resources are located,
+ // but we are currently using inequitable access to health-promoting
+ // resources to represent part of this broader issue.
+
+ // Occupational Stratification by Race and Gender - REMAIN EXCLUDED
+ // Employment inequalities can affect income and insurance,
+ // but we have not developed a direct relationship in our map.
+
+ // Differential Exposure to Environmental Hazards - REMAIN EXCLUDED
+ // Unequal environmental exposures may increase health needs,
+ // but our current map focuses on healthcare access barriers.
+
+
+ // WORKFORCE
+
+ // Specialist Clinician Supply - REMAIN EXCLUDED
+ // Specialist shortages may delay treatment, but we are currently
+ // focusing on primary care clinicians and nursing availability.
+
+ // Public Health Workforce Capacity - REMAIN EXCLUDED
+ // Public health workers support prevention, but they are not
+ // currently part of our emergency department patient flow model.
+
+
+ // INFRASTRUCTURE
+
+ // Primary Care Facility Availability - REMAIN EXCLUDED
+ // Clinic locations may affect primary care access, but our map
+ // currently focuses on clinician supply and appointment capacity.
+
+ // Obstetric/Maternity Care Availability - REMAIN EXCLUDED
+ // Maternity care shortages may affect emergency care use,
+ // but our map examines overcrowding across patient populations.
+
+
+ // --- OVERALL RECONSIDERATION SUMMARY ---
+
+ // After reviewing our original system map, we decided to keep nine
+ // elements and replace three custom elements with selections from
+ // the professor's official list. This gives us 12 official elements
+ // and maintains our focus on emergency department overcrowding.
+
+ // We kept elements related to primary care, hospital capacity,
+ // workforce availability, insurance, and structural inequities
+ // because they help explain why patients may rely on emergency care
+ // and why emergency departments may experience delays.
+
+ // We also recognize that some excluded elements could become important
+ // as we research our system further. For example, primary care facility
+ // availability and household out-of-pocket spending may help explain
+ // relationships that our current map does not fully capture.
+
+ // Our revised element selection is intended to make the relationships
+ // more specific while keeping the system manageable.
+
+
 
 }
   

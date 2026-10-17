@@ -70,8 +70,7 @@ emergency_care_delays -> ed_crowding [label="+ delay"];
   primary_care_clinician_supply -> primary_care_clinician_workload [label="-"]; // When there are fewer primary care clinicians, the remaining clinicians may have to care for more patients, increasing their workload.
   primary_care_clinician_workload -> primary_care_clinician_supply [label="- delay"]; // When clinicians have too much work, they may experience burnout or leave their jobs. Over time, this can lead to fewer available clinicians.
   inequitable_health_resources -> primary_capacity [label="-"]; // Unequal access to health-promoting resources can increase unmet health needs and place additional pressure on limited primary care capacity.
-  uninsured_population -> drug_formulary_restrictions [label="+"]; // Insurance status and formulary restrictions may affect medication access differently. This connection needs to be reconsidered.
-
+  
   // Evelyn - Causal Links
   nursing_workforce_availability -> emergency_access [label="+"]; // More available nurses can support faster assessment, treatment, monitoring, and movement of emergency department patients.
   health_it_interoperability -> emergency_access [label="+"]; // Better exchange of patient information can reduce delays caused by missing medical histories, test results, or other information.
@@ -80,12 +79,9 @@ emergency_care_delays -> ed_crowding [label="+ delay"];
   // Kelly - Causal Links
   transportation_access -> primary_capacity [label="+"]; // Greater transportation access can help patients attend scheduled primary care appointments, increasing the effective use of available visit capacity.
   primary_capacity -> transportation_access [label="+ delay"]; // Expanding primary care services into more accessible locations could improve transportation access over time. This relationship needs further evidence.
-  drug_formulary_restrictions -> emergency_access [label="-"]; // Greater formulary restrictions may make medications harder to obtain, potentially increasing emergency care use. Emergency care access is not the same as emergency department crowding, so this relationship needs revision.
   federal_regulatory_requirements-> emergency_access [label="+"]; // Federal regulations such as EMTALA require covered emergency departments to provide medical screening and necessary stabilizing treatment. This relationship represents legal access obligations, not necessarily greater emergency department capacity.
   prescription_drug_spending -> drug_formulary_restrictions [label="+ delay"]; // When prescription drug spending increases, insurers may add more restrictions to help control costs.
   drug_formulary_restrictions -> prescription_drug_spending [label="-"]; // More restrictions can reduce spending on certain medications by limiting which drugs insurance plans cover.
-
-
 
   // Chelsea - Causal Links for R5
   ed_crowding -> nursing_workforce_availability [label="+ delay"]; // More ED crowding may lead the hospital to try to bring in or reassign nurses, but this takes time.

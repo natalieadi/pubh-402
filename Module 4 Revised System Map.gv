@@ -40,7 +40,6 @@ prescription_drug_spending [label="Prescription Drug Spending"]; // Money insura
 primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
 inequitable_health_resources [label="Inequitable Access to Health-Promoting Resources"]; // Structural Inequities
 uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
-uninsured_population -> primary_capacity [label="-"]; // A larger uninsured population may increase barriers to obtaining regular primary care, reducing the effective use of available appointments.
 // Additional element for R2
 primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Custom Workforce element was added to show how having too much work can affect primary care clinicians.
 

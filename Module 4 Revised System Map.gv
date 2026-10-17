@@ -33,6 +33,8 @@ fee_for_service [label="Fee-for-Service Payment Prevalence"]; // Payment Models
 transportation_access [label="Transportation Access"]; // Structural Determinants
 drug_formulary_restrictions [label="Drug Formulary Restrictions"]; // Pharmaceuticals and Devices
 federal_regulatory_requirements [label="Federal Regulatory Requirements"]; // Federal and State Policy
+// Additional element for R4
+prescription_drug_spending [label="Prescription Drug Spending"]; // Money insurance plans spend on prescription medications.
 
 // Gabriela - Elements 10-12 
 primary_care_clinician_supply [label="Primary Care Clinician Supply"]; // Workforce
@@ -80,6 +82,9 @@ emergency_care_delays -> ed_crowding [label="+ delay"];
   primary_capacity -> transportation_access [label="+ delay"]; // Expanding primary care services into more accessible locations could improve transportation access over time. This relationship needs further evidence.
   drug_formulary_restrictions -> emergency_access [label="-"]; // Greater formulary restrictions may make medications harder to obtain, potentially increasing emergency care use. Emergency care access is not the same as emergency department crowding, so this relationship needs revision.
   federal_regulatory_requirements-> emergency_access [label="+"]; // Federal regulations such as EMTALA require covered emergency departments to provide medical screening and necessary stabilizing treatment. This relationship represents legal access obligations, not necessarily greater emergency department capacity.
+  prescription_drug_spending -> drug_formulary_restrictions [label="+ delay"]; // When prescription drug spending increases, insurers may add more restrictions to help control costs.
+  drug_formulary_restrictions -> prescription_drug_spending [label="-"]; // More restrictions can reduce spending on certain medications by limiting which drugs insurance plans cover.
+
 
 
   // Chelsea - Causal Links for R5
@@ -120,6 +125,42 @@ subgraph cluster_R1 {
     // The return relationship still needs more evidence.
 }
 
+// R2 - Gabriela
+  subgraph cluster_R2 {
+
+    label="R2 Reinforcing: Primary Care Clinician Supply and Workload";
+    style="rounded,dashed";
+    color="gray40";
+    fontname="Arial";
+    fontsize=12;
+
+    primary_care_clinician_supply;
+    primary_care_clinician_workload;
+
+    // When fewer primary care clinicians are available,
+    // the remaining clinicians may have to care for more patients.
+    // This can increase their workload.
+
+    // Having a higher workload can lead to stress and burnout.
+    // Over time, some clinicians may leave their jobs,
+    // which can further decrease the number of available clinicians.
+
+    // This is a reinforcing loop because both relationships
+    // have negative polarity, meaning they reinforce
+    // the original change.
+
+    // There is a delay because burnout and staff turnover
+    // can develop over time.
+
+    // RESEARCH FOR R2
+
+    // Research on healthcare worker burnout:
+    // https://pmc.ncbi.nlm.nih.gov/articles/PMC9512560/
+
+    // Research on physician burnout and turnover:
+    // https://pubmed.ncbi.nlm.nih.gov/28233221/
+  }
+
   // R3 - Evelyn
   subgraph cluster_R3 {
 
@@ -150,22 +191,48 @@ subgraph cluster_R1 {
     // https://pmc.ncbi.nlm.nih.gov/articles/PMC4265215/
   }
 
+ // R4 - Kelly
+subgraph cluster_R4 {
 
-  // R4
-  subgraph cluster_R4 {
+  label="B4 Balancing: Prescription Drug Spending and Restrictions";
+  style="rounded,dashed";
+  color="gray40";
+  fontname="Arial";
+  fontsize=12;
 
-    label="R4 Reinforcing: Medication Access and Emergency Care";
-    style="rounded,dashed";
-    color="gray40";
-    fontname="Arial";
-    fontsize=12;
+  prescription_drug_spending;
+  drug_formulary_restrictions;
 
-    drug_formulary_restrictions;
-    uninsured_population;
+  // This loop shows how insurance plans may respond
+  // when prescription drug spending increases.
+  // Insurers may add restrictions to certain medications
+  // to help control costs.
+  // These restrictions can lower spending on those drugs,
+  // which may reduce the pressure to add more restrictions.
 
-  // Drug formulary restrictions can limit access to certain medications.
-  // This may contribute to difficulties managing chronic conditions.
-  // R4 is not yet a closed feedback loop and needs to be redesigned.
+  // This is a balancing loop because it has
+  // one positive arrow and one negative arrow.
+
+  // There is a delay because insurance plans may take
+  // time to change their medication coverage rules.
+
+  // This loop assumes insurers respond to higher
+  // prescription drug spending by changing their formularies.
+
+  // RESEARCH FOR R4
+
+  // Happe et al. (2014)
+  // Research found that formulary restrictions can
+  // reduce pharmacy spending and use of restricted drugs.
+  // https://pmc.ncbi.nlm.nih.gov/articles/PMC10437744/
+
+  // Park et al. (2017)
+  // This review explains that restrictions are used
+  // to control pharmacy costs, but they can also
+  // have negative effects on patients.
+  // https://pmc.ncbi.nlm.nih.gov/articles/PMC10398101/
+}
+
   }
 
 // R5 - Chelsea
@@ -553,7 +620,6 @@ subgraph cluster_R5 {
 // we included it because it helps explain the connection
 // between primary care staffing and workload.
 
-}
   
 // --- NATALIE - ADDITIONAL ELEMENT FOR MODULE 4 ---
 

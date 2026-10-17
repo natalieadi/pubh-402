@@ -366,6 +366,20 @@ subgraph cluster_R5 {
  // responsibilities toward patients seeking emergency treatment.
  // We want to examine how these requirements interact with hospital capacity.
 
+// --- ADDITIONAL CUSTOM ELEMENTS FOR MODULE 4 ---
+
+ // Prescription Drug Spending - INCLUDED (Custom Element)
+ // We added this element to show how insurance plans
+ // may respond when spending on medications increases.
+ // It helps explain the balancing relationship between
+ // prescription drug spending and formulary restrictions.
+
+ // Emergency Department Crowding - INCLUDED (Custom Element)
+ // We added this element because it directly represents
+ // our group's main health problem.
+ // It helps show how overcrowding is connected to
+ // emergency care delays, nursing availability,
+ // and hospital bed capacity.
 
  // --- RECONSIDERATION OF OTHER ELEMENTS NOT SELECTED ---
 

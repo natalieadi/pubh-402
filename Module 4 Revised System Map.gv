@@ -22,7 +22,8 @@ primary_capacity [label="Primary Care Visit Capacity"]; // Care Providers
 emergency_care_delays [label="Emergency Care Delays"];
 // Custom element added to show how waiting and boarding
 // delays can contribute to emergency department crowding.
-
+// Longer delays may cause patients to remain in
+// the emergency department for more time.
 
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
@@ -43,18 +44,8 @@ uninsured_population [label="Uninsured Population Size"]; // Financing/Insurance
 // Additional element for R2
 primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Custom Workforce element was added to show how having too much work can affect primary care clinicians.
 
-
   // Chelsea - Element for R5
   ed_crowding [label="Emergency Department Crowding"]; // Infrastructure
-
-// Natalie - Additional Element for R1
-emergency_care_delays [label="Emergency Care Delays"];
-
-// This element was added to show how overcrowding
-// can increase delays in emergency care.
-// Longer delays may cause patients to remain in
-// the emergency department for more time.
-
 
 // Natalie - R1 Causal Links
 
@@ -63,7 +54,6 @@ ed_crowding -> emergency_care_delays [label="+"];
 emergency_care_delays -> ed_crowding [label="+ delay"];
 // Longer delays can keep patients in the emergency
 // department and contribute to continued overcrowding.
-
 
   // Gabriela - Causal Links
   primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.

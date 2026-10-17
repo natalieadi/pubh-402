@@ -40,10 +40,20 @@ primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Cu
   // Chelsea - Element for R5
   ed_crowding [label="Emergency Department Crowding"]; // Infrastructure
 
-  // --- Causal links (with polarity) ---
-   // Natalie - Causal Links
-  hospital_beds -> emergency_access [label="+"]; // More hospital beds free up space for incoming patients.
-  primary_capacity -> emergency_access [label="-"]; // More primary care appointments reduce avoidable ED visits.
+// Natalie - R1 Causal Links
+
+primary_capacity -> primary_care_clinician_workload [label="-"];
+// When more appointments can be provided without
+// increasing patient demand, workload pressure may decrease.
+
+primary_care_clinician_workload -> primary_care_clinician_supply [label="- delay"];
+// Higher workload may increase burnout and cause
+// some clinicians to leave over time.
+
+// The existing arrow from clinician supply to
+// primary capacity completes this loop.
+
+
 
   // Gabriela - Causal Links
   primary_care_clinician_supply -> primary_capacity [label="+"]; // More primary care clinicians can increase the number of patients who can be scheduled and seen.
@@ -72,23 +82,70 @@ hospital_beds -> ed_crowding [label="-"]; // More available hospital beds can he
 
 // --- Loop callouts ---
 
-  // R1
-  subgraph cluster_R1 {
+// R1 - Natalie
+subgraph cluster_R1 {
 
-    label="R1 Reinforcing: Patient Flow and Nursing Capacity";
+    label="R1 Reinforcing: Primary Care Capacity and Workforce";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
 
-    hospital_beds;
-    emergency_access;
-    nursing_workforce_availability;
+    primary_care_clinician_supply;
+    primary_capacity;
+    primary_care_clinician_workload;
 
-    // Better patient flow may support nursing retention over time.
-    // More nurses allow more hospital beds to be staffed.
-    // More hospital beds improve emergency department patient flow.
-  }
+    // This loop shows how primary care staffing
+    // and appointment capacity can affect workload.
+
+    // When fewer clinicians are available,
+    // fewer primary care appointments may be offered.
+
+    // If patient demand stays the same, reduced
+    // appointment capacity can increase workload
+    // pressure on the remaining clinicians.
+
+    // Higher workload may increase burnout and
+    // cause some clinicians to leave over time.
+
+    // This can further reduce primary care capacity
+    // and make it harder for patients to get care.
+
+    // This is a reinforcing loop because it has
+    // two negative arrows and one positive arrow.
+
+    // The loop starts with clinician supply,
+    // moves to primary care capacity and workload,
+    // and returns to clinician supply.
+
+    // The effect of workload on clinician supply
+    // includes a delay because turnover takes time.
+
+    // RESEARCH FOR R1
+
+    // Source 1: Revitalizing Primary Care (2022)
+    // Large patient panels can contribute to burnout,
+    // reduced patient access, and clinician departures.
+    // https://pmc.ncbi.nlm.nih.gov/articles/PMC9512560/
+
+    // Source 2: Burnout and Health Care Workforce
+    // Turnover (2019)
+    // Found an association between burnout and
+    // turnover among primary care clinicians.
+    // https://www.annfammed.org/content/17/1/36
+
+    // Source 3: Balancing Clinician Workload
+    // Through Strategic Patient Panel Designs (2022)
+    // Discusses workload, appointment capacity,
+    // and clinician well-being.
+    // https://pubmed.ncbi.nlm.nih.gov/36201721/
+
+    // LIMITATION:
+    // This loop assumes patient demand remains
+    // relatively stable. More research is needed
+    // to establish how appointment capacity changes
+    // workload in different healthcare settings.
+}
 
 
   // R2 - Gabriela 

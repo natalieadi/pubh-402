@@ -14,10 +14,15 @@ digraph EmergencyDepartmentOvercrowding {
 
   // --- Nodes (your selected elements) ---
 
-  // Natalie - Elements 1-3
-  hospital_beds [label="Hospital Bed Capacity"]; // Infrastructure
-  emergency_access [label="Emergency Care Access"]; // Infrastructure
-  primary_capacity [label="Primary Care Visit Capacity"]; // Care 
+// Natalie - Elements 1-3
+hospital_beds [label="Hospital Bed Capacity"]; // Infrastructure
+emergency_access [label="Emergency Care Access"]; // Infrastructure
+primary_capacity [label="Primary Care Visit Capacity"]; // Care Providers
+// Natalie - Additional Element for R1
+emergency_care_delays [label="Emergency Care Delays"];
+// Custom element added to show how waiting and boarding
+// delays can contribute to emergency department crowding.
+
 
 // Evelyn - Elements 4-6
 nursing_workforce_availability [label="Nursing Workforce Availability"]; // Workforce
@@ -42,17 +47,12 @@ primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Cu
 
 // Natalie - R1 Causal Links
 
-primary_capacity -> primary_care_clinician_workload [label="-"];
-// When more appointments can be provided without
-// increasing patient demand, workload pressure may decrease.
+ed_crowding -> emergency_care_delays [label="+"];
+// More ED crowding can increase waiting and boarding delays.
 
-primary_care_clinician_workload -> primary_care_clinician_supply [label="- delay"];
-// Higher workload may increase burnout and cause
-// some clinicians to leave over time.
-
-// The existing arrow from clinician supply to
-// primary capacity completes this loop.
-
+emergency_care_delays -> ed_crowding [label="+ delay"];
+// Longer delays can keep patients in the emergency
+// department and contribute to continued overcrowding.
 
 
   // Gabriela - Causal Links
@@ -85,114 +85,40 @@ hospital_beds -> ed_crowding [label="-"]; // More available hospital beds can he
 // R1 - Natalie
 subgraph cluster_R1 {
 
-    label="R1 Reinforcing: Primary Care Capacity and Workforce";
+    label="R1 Reinforcing: ED Crowding and Patient Delays";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
     fontsize=12;
 
-    primary_care_clinician_supply;
-    primary_capacity;
-    primary_care_clinician_workload;
+    ed_crowding;
+    emergency_care_delays;
 
-    // This loop shows how primary care staffing
-    // and appointment capacity can affect workload.
+    // When the emergency department becomes overcrowded,
+    // patients may experience longer waiting and boarding times.
 
-    // When fewer clinicians are available,
-    // fewer primary care appointments may be offered.
+    // Longer delays can keep patients in the ED,
+    // leaving less space available for incoming patients.
 
-    // If patient demand stays the same, reduced
-    // appointment capacity can increase workload
-    // pressure on the remaining clinicians.
+    // This can make overcrowding worse and continue the cycle.
 
-    // Higher workload may increase burnout and
-    // cause some clinicians to leave over time.
+    // This is a reinforcing loop because both arrows are positive.
 
-    // This can further reduce primary care capacity
-    // and make it harder for patients to get care.
-
-    // This is a reinforcing loop because it has
-    // two negative arrows and one positive arrow.
-
-    // The loop starts with clinician supply,
-    // moves to primary care capacity and workload,
-    // and returns to clinician supply.
-
-    // The effect of workload on clinician supply
-    // includes a delay because turnover takes time.
+    // The loop starts with ED crowding, moves to
+    // emergency care delays, and returns to ED crowding.
 
     // RESEARCH FOR R1
 
-    // Source 1: Revitalizing Primary Care (2022)
-    // Large patient panels can contribute to burnout,
-    // reduced patient access, and clinician departures.
-    // https://pmc.ncbi.nlm.nih.gov/articles/PMC9512560/
+    // AHRQ - Improving Patient Flow
+    // https://www.ahrq.gov/research/findings/final-reports/ptflow/ptflowguide.pdf
 
-    // Source 2: Burnout and Health Care Workforce
-    // Turnover (2019)
-    // Found an association between burnout and
-    // turnover among primary care clinicians.
-    // https://www.annfammed.org/content/17/1/36
-
-    // Source 3: Balancing Clinician Workload
-    // Through Strategic Patient Panel Designs (2022)
-    // Discusses workload, appointment capacity,
-    // and clinician well-being.
-    // https://pubmed.ncbi.nlm.nih.gov/36201721/
+    // McCarthy et al. (2009)
+    // https://pubmed.ncbi.nlm.nih.gov/19423188/
 
     // LIMITATION:
-    // This loop assumes patient demand remains
-    // relatively stable. More research is needed
-    // to establish how appointment capacity changes
-    // workload in different healthcare settings.
+    // The return relationship is strongest for boarding
+    // delays that keep patients occupying ED beds.
 }
-
-
-  // R2 - Gabriela 
-  subgraph cluster_R2 {
-
-label="R2 Reinforcing: Primary Care Staffing and Workload";
-  style="rounded,dashed";
-  color="gray40";
-  fontname="Arial";
-  fontsize=12;
-
-  primary_care_clinician_supply;
-  primary_care_clinician_workload;
-
-  // This loop shows how having fewer primary care clinicians
-  // can lead to a higher workload for the clinicians who remain.
-  // When clinicians have too much work, they may experience burnout
-  // and some may decide to leave their jobs.
-  // This can lead to even fewer clinicians being available,
-  // which increases the workload again.
-
-  // The loop starts with Primary Care Clinician Supply,
-  // moves to Primary Care Clinician Workload, and then
-  // returns to Primary Care Clinician Supply.
-
-  // This is a reinforcing loop because both arrows are negative.
-  // The second arrow has a delay because burnout and leaving
-  // a job usually happen over time.
-
-  // This loop assumes that patient demand stays about the same.
-  // If there are fewer clinicians but the same number of patients,
-  // the remaining clinicians may have more work.
-
-  // RESEARCH FOR R2
-
-  // Source 1: Revitalizing Primary Care (2022)
-  // This article discusses how heavy workloads and burnout
-  // can make it harder to keep primary care clinicians.
-  // https://pmc.ncbi.nlm.nih.gov/articles/PMC9512560/
-
-  // Source 2: Primary Care Staffing and Burnout (2017)
-  // This study looks at how staffing and workload are
-  // related to burnout among primary care team members.
-  // https://pubmed.ncbi.nlm.nih.gov/28233221/
-
-}
-  
 
   // R3
   subgraph cluster_R3 {
@@ -615,3 +541,24 @@ subgraph cluster_R5 {
 
 }
   
+// --- NATALIE - ADDITIONAL ELEMENT FOR MODULE 4 ---
+
+// Emergency Care Delays - INCLUDE (Custom Element)
+// Areas: Emergency Care / Infrastructure
+
+// We added this element because it helps explain
+// how overcrowding and patient delays affect each other.
+
+// When the emergency department becomes overcrowded,
+// patients may experience longer waiting and boarding times.
+
+// Longer boarding delays can keep patients occupying
+// emergency department beds, leaving less space
+// for incoming patients.
+
+// This element is needed to connect ED crowding
+// back to itself through a reinforcing feedback loop.
+
+// One limitation is that waiting and boarding delays
+// are not exactly the same, so this relationship
+// needs to be examined further.

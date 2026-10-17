@@ -45,10 +45,18 @@ primary_care_clinician_workload [label="Primary Care Clinician Workload"]; // Cu
   // Chelsea - Element for R5
   ed_crowding [label="Emergency Department Crowding"]; // Infrastructure
 
+// Natalie - Additional Element for R1
+emergency_care_delays [label="Emergency Care Delays"];
+
+// This element was added to show how overcrowding
+// can increase delays in emergency care.
+// Longer delays may cause patients to remain in
+// the emergency department for more time.
+
+
 // Natalie - R1 Causal Links
 
 ed_crowding -> emergency_care_delays [label="+"];
-// More ED crowding can increase waiting and boarding delays.
 
 emergency_care_delays -> ed_crowding [label="+ delay"];
 // Longer delays can keep patients in the emergency
@@ -85,7 +93,7 @@ hospital_beds -> ed_crowding [label="-"]; // More available hospital beds can he
 // R1 - Natalie
 subgraph cluster_R1 {
 
-    label="R1 Reinforcing: ED Crowding and Patient Delays";
+    label="R1 Reinforcing: ED Crowding and Care Delays";
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
@@ -94,30 +102,22 @@ subgraph cluster_R1 {
     ed_crowding;
     emergency_care_delays;
 
-    // When the emergency department becomes overcrowded,
-    // patients may experience longer waiting and boarding times.
+    // More ED crowding can increase delays in care.
+    // Longer delays may keep patients in the ED longer,
+    // which can contribute to continued overcrowding.
 
-    // Longer delays can keep patients in the ED,
-    // leaving less space available for incoming patients.
-
-    // This can make overcrowding worse and continue the cycle.
-
-    // This is a reinforcing loop because both arrows are positive.
+    // This is a reinforcing loop because both
+    // relationships are positive.
 
     // The loop starts with ED crowding, moves to
     // emergency care delays, and returns to ED crowding.
 
     // RESEARCH FOR R1
-
-    // AHRQ - Improving Patient Flow
-    // https://www.ahrq.gov/research/findings/final-reports/ptflow/ptflowguide.pdf
-
-    // McCarthy et al. (2009)
-    // https://pubmed.ncbi.nlm.nih.gov/19423188/
-
-    // LIMITATION:
-    // The return relationship is strongest for boarding
-    // delays that keep patients occupying ED beds.
+    // Morley et al. (2018)
+    // Emergency department crowding: A systematic review
+    // https://pmc.ncbi.nlm.nih.gov/articles/PMC6117060/
+    // This review discusses ED crowding and care delays.
+    // The return relationship still needs more evidence.
 }
 
   // R3
@@ -562,3 +562,5 @@ subgraph cluster_R5 {
 // One limitation is that waiting and boarding delays
 // are not exactly the same, so this relationship
 // needs to be examined further.
+
+}

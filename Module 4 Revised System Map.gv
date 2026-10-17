@@ -233,8 +233,6 @@ subgraph cluster_R4 {
   // https://pmc.ncbi.nlm.nih.gov/articles/PMC10398101/
 }
 
-  }
-
 // R5 - Chelsea
 subgraph cluster_R5 {
 

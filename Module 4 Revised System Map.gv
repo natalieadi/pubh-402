@@ -120,10 +120,10 @@ subgraph cluster_R1 {
     // The return relationship still needs more evidence.
 }
 
-  // R3
+  // R3 - Evelyn
   subgraph cluster_R3 {
 
-    label="R3 Reinforcing: Primary Care Access and Transportation";
+    label="R3 Under Revision: Primary Care Access and Transportation";    
     style="rounded,dashed";
     color="gray40";
     fontname="Arial";
@@ -132,8 +132,22 @@ subgraph cluster_R1 {
     primary_capacity;
     transportation_access;
 
-    // Greater transportation access can help patients attend primary care appointments and make better use of available services.
-   // However, increasing primary care visit capacity does not automatically improve transportation access. This return relationship needs more research and may need to be revised.
+    // Our original R3 assumed that transportation access and primary care visit capacity reinforced each other.
+    // Research supports transportation as a barrier to attending healthcare appointments.
+    //
+    // Syed et al. (2013) reviewed 61 studies and found
+    // that transportation barriers were associated with
+    // missed appointments, delayed care, and difficulty accessing healthcare.
+    //
+    // We reconsidered the return connection from primary
+    // care visit capacity to transportation access because
+    // more appointments do not automatically create
+    // better transportation options.
+    //
+    // Research source:
+    // Syed, Gerber, and Sharp (2013).
+    // Traveling Towards Disease: Transportation Barriers to Health Care Access.
+    // https://pmc.ncbi.nlm.nih.gov/articles/PMC4265215/
   }
 
 

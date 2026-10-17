@@ -317,23 +317,24 @@ subgraph cluster_R5 {
  // We decided to use Transportation Access from the professor's list instead.
  // It still allows us to examine how transportation affects patients'
  // ability to attend primary care appointments, but uses an official element.
- // We will also need to adjust the polarity of our original relationships
- // because greater transportation access means fewer transportation barriers.
+// We adjusted our relationships to reflect that greater
+// transportation access means fewer transportation barriers.
 
  // Prescription or Medication Coverage - REPLACE
  // This was another custom element in our original map.
  // We decided to use Drug Formulary Restrictions from the official list.
  // This focuses more specifically on how insurance coverage restrictions
  // can limit patients' access to certain medications.
- // We will need to revise the related arrows because formulary restrictions
- // are not the same as overall medication coverage.
+ // We revised the related arrows to focus on how formulary
+ // restrictions can affect prescription drug spending.
 
  // Federal EMTALA - REPLACE
  // Our original element focused on the federal law that requires certain
  // hospitals to provide emergency screening and stabilizing treatment.
  // We decided to use Federal Regulatory Requirements from the official list.
- // EMTALA can still be discussed as an example of a federal requirement,
- // but we need to make sure our arrows describe the broader element.
+ // EMTALA can still be discussed as an example of a federal requirement. 
+ // Our revised relationship reflects how federal requirements
+ // influence hospitals' responsibilities to provide emergency care.
 
 
  // --- NEWLY SELECTED ELEMENTS FROM THE OFFICIAL LIST ---
